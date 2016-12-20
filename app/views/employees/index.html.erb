@@ -1,0 +1,44 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Справочние "Сотрудников"</h1>
+<hr>
+<table>
+  <thead>
+    <tr>
+      <th>Фамилия, Имя и Отчество</th>
+      <th>Адресс</th>
+      <th>Телефон</th>
+      <th>Описание</th>
+      <th>Должность</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @employees.each do |employee| %>
+      <tr>
+        <td><%= employee.family %></td>
+        <td><%= employee.adress %></td>
+        <td><%= employee.phone %></td>
+        <td><%= employee.description %></td>
+        <td>
+          <% @positions.each do |position| %>
+            <% if position.id == employee.position_id %>
+               <%= position.name %>
+            <% end %>
+          <% end %>
+        </td>
+        <td><%= link_to 'Показать', employee %></td>
+        <td><%= link_to 'Редактировать', edit_employee_path(employee) %></td>
+        <td><%= link_to 'Удалить', employee, method: :delete, data: { confirm: 'Вы уверены?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+<h4>
+<%= link_to 'Добавить нового сотрудника', new_employee_path %><br /><br />
+<%= link_to "Выйти на главное меню", :controller => "welcome" %></h4>
+<br /><hr>
+<h3><div id="MyFooter">Copyright by Вавилов А. А. группа: М15-ИСТ-3</div></h3>

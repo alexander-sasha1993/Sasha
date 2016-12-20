@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  cost: 1.5
+  dateofmanufacturer: 2016-12-06
+  shelflife: 1
+  description: MyText
+  manufacturer_id: 1
+  type_id: 1
+  provider_id: 1
+
+two:
+  name: MyString
+  cost: 1.5
+  dateofmanufacturer: 2016-12-06
+  shelflife: 1
+  description: MyText
+  manufacturer_id: 1
+  type_id: 1
+  provider_id: 1

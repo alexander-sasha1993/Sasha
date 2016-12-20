@@ -1,0 +1,102 @@
+<%= form_for(order) do |f| %>
+  <% if order.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(order.errors.count, "error") %> prohibited this order from being saved:</h2>
+
+      <ul>
+      <% order.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+<table width="100%">
+   <tr>
+      <td id="MyLeft">
+         № заказа:
+      </td>
+      <td id="MyRight">
+         <%= f.text_field :id, :disabled=>true, :size=>"5" %>
+      </td>
+   </tr>
+   <tr>
+      <td id="MyLeft">
+         Дата размещения:
+      </td>
+      <td id="MyRight">
+         <%= f.date_select :datepublic %>
+      </td>
+   </tr>
+   <tr>
+      <td id="MyLeft">
+         Дата исполнения:
+      </td>
+      <td id="MyRight">
+         <%= f.date_select :dateperformance %>
+      </td>
+   </tr>
+   <tr>
+      <td id="MyLeft">
+         Стоимость доставки:
+      </td>
+      <td id="MyRight">
+         <%= f.text_field :costdelivery, :size=>"10", :maxlength=>"10" %> руб.
+      </td>
+   </tr>
+   <tr>
+      <td id="MyLeft">
+         Выберите клиента:
+      </td>
+      <td id="MyRight">
+         <%= f.collection_select(:client_id, Client.all, :id, :name) %>
+      </td>
+   </tr>
+   <tr>
+      <td id="MyLeft">
+         Выберите тип доставки:
+      </td>
+      <td id="MyRight">
+         <%= f.collection_select(:delivery_id, Delivery.all, :id, :name) %>
+      </td>
+   </tr>
+   <tr>
+      <td id="MyLeft">
+         Выберите сотрудника:
+      </td>
+      <td id="MyRight">
+         <%= f.collection_select(:employee_id, Employee.all, :id, :family) %>
+      </td>
+   </tr>
+</table>
+
+<% if f.object.new_record? %>
+<!-- если объект новый -->
+<div class="param">
+    <br />
+    <span class="ul">
+    <h4>Выберите необходимые препараты</h4>
+    <% Preparat.all.each do |preparat| %>
+        <label class="li">
+        <%= check_box_tag :preparat_ids, preparat.id, @order.preparats.include?(preparat), :name => 'order[preparat_ids][]' %> 
+        <u><%= preparat.name %></u>
+        </label><br />
+    <% end %>
+    </span>
+</div>
+<% else %>
+   <%= f.fields_for :ordereds do |ord| %>
+   <p>
+        Препарат:<%= ord.collection_select(:preparat_id, Preparat.all, :id, :name) %>
+        Количество:<%= ord.text_field :quantity, :size=>"5", :maxlength=>"5"  %> шт.
+        Скидка:<%= ord.text_field :discount, :size=>"3", :maxlength=>"3"  %> %
+        Удалить запись:<%= ord.check_box :_destroy %>
+    </p>
+    <% end %>
+<% end %>
+
+  <br /><br />
+  <div class="actions">
+    <%= f.submit ( f.object.new_record? ? "Создать" : "Обновить"), class: "btn" %>
+  </div>
+<% end %>

@@ -1,0 +1,84 @@
+<%= form_for(preparat) do |f| %>
+  <% if preparat.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(preparat.errors.count, "error") %> prohibited this preparat from being saved:</h2>
+
+      <ul>
+      <% preparat.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+<table width="100%">
+  <tr>
+    <td id="MyLeft">
+       Название:
+    </td>
+    <td id="MyRight">
+       <%= f.text_field :name, :size=>"20", :maxlength=>"20" %>
+    </td>
+  </tr>
+  <tr>
+    <td id="MyLeft">
+       Стоимость:
+    </td>
+    <td id="MyRight">
+       <%= f.text_field :cost, :size=>"10", :maxlength=>"10" %> руб.
+    </td>
+  </tr>
+  <tr>
+    <td id="MyLeft">
+       Дата изготовления:
+    </td>
+    <td id="MyRight">
+       <%= f.date_select :dateofmanufacturer %>
+    </td>
+  </tr>
+  <tr>
+    <td id="MyLeft">
+       Срок годности:
+    </td>
+    <td id="MyRight">
+       <%= f.number_field :shelflife, :size=>"5", :maxlength=>"5" %>лет.
+    </td>
+  </tr>
+  <tr>
+    <td id="MyLeft">
+       Описание:
+    </td>
+    <td id="MyRight">
+       <%= f.text_area :description, :size=>"80x5", :maxlength=>"400" %>
+    </td>
+  </tr>
+  <tr>
+    <td id="MyLeft">
+      Выберите изготовителя:
+    </td>
+    <td id="MyRight">
+       <%= f.collection_select(:manufacturer_id, Manufacturer.all, :id, :name) %>
+    </td>
+  </tr>
+  <tr>
+    <td id="MyLeft">
+        Выберите тип:
+    </td>
+    <td id="MyRight">
+       <%= f.collection_select(:type_id, Type.all, :id, :typeform) %>
+    </td>
+  </tr>
+  <tr>
+    <td id="MyLeft">
+       Выберите поставщика:
+    </td>
+    <td id="MyRight">
+       <%= f.collection_select(:provider_id, Provider.all, :id, :name) %>
+    </td>
+  </tr>
+</table>
+  <br />
+  <div class="actions">
+    <%= f.submit ( f.object.new_record? ? "Создать" : "Обновить"), class: "btn" %>
+  </div>
+<% end %>

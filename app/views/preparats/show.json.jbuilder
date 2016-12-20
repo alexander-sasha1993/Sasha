@@ -1,0 +1,1 @@
+json.partial! "preparats/preparat", preparat: @preparat

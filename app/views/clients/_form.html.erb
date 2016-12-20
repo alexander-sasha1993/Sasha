@@ -1,0 +1,44 @@
+<%= form_for(client) do |f| %>
+  <% if client.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(client.errors.count, "error") %> prohibited this client from being saved:</h2>
+
+      <ul>
+      <% client.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <table width="100%">
+    <tr>
+       <td id="MyLeft">
+          Фамилия, Имя и Отчество:
+       </td>
+       <td id="MyRight">
+          <%= f.text_field :name, :size=>"40", :maxlength=>"40" %>
+       </td>
+    </tr>
+    <tr>
+       <td id="MyLeft">
+          Адрес:
+       </td>
+       <td id="MyRight">
+          <%= f.text_field :adress, :size=>"50", :maxlength=>"50" %>
+       </td>
+    </tr>
+    <tr>
+       <td id="MyLeft">
+          Телефон:
+       </td>
+       <td id="MyRight">
+          <%= f.text_field :phone, :size=>"15", :maxlength=>"15" %>
+       </td>
+    </tr>
+  </table>
+  <br />
+  <div class="actions">
+    <%= f.submit ( f.object.new_record? ? "Создать" : "Обновить"), class: "btn" %>
+  </div>
+<% end %>

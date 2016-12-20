@@ -1,0 +1,37 @@
+// Place all the styles related to the Welcome controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+body{
+    text-align:center;
+    background-color:bisque;
+}
+
+#MyTable {
+    text-align: center;
+    font-weight:bold;
+	width:100%;
+}
+
+#MyFooter {
+	font-weight:bold;
+}
+
+TABLE {
+    width: 100%;
+	border: 1px solid saddlebrown;
+}
+
+TH,TD {
+	border: 1px solid saddlebrown;
+}
+
+#MyLeft {
+	text-align: right;
+	width: 50%;
+}
+
+#MyRight {
+	text-align: left;
+	width: 50%;
+}

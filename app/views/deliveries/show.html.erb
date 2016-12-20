@@ -1,0 +1,17 @@
+<p id="notice"><%= notice %></p>
+<h1>Справочник "Доставок"</h1>
+<hr>
+<p>
+  <strong>Тип доставки:</strong>
+  <%= @delivery.name %>
+</p>
+
+<p>
+  <strong>Телефон:</strong>
+  <%= @delivery.phone %>
+</p>
+<h4>
+<%= link_to 'Редактировать', edit_delivery_path(@delivery) %> |
+<%= link_to 'Назад', deliveries_path %></h4>
+<br /><hr>
+<h3><div id="MyFooter">Copyright by Вавилов А. А. группа: М15-ИСТ-3</div></h3>

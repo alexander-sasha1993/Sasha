@@ -1,0 +1,1 @@
+json.array! @preparats, partial: 'preparats/preparat', as: :preparat

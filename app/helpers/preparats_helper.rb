@@ -1,0 +1,2 @@
+module PreparatsHelper
+end

@@ -1,0 +1,32 @@
+<p id="notice"><%= notice %></p>
+<h1>Справочние "Сотрудников"</h1>
+<hr>
+<p>
+  <strong>Фамилия, Имя и Отчество:</strong>
+  <%= @employee.family %>
+</p>
+
+<p>
+  <strong>Адресс:</strong>
+  <%= @employee.adress %>
+</p>
+
+<p>
+  <strong>Телефон:</strong>
+  <%= @employee.phone %>
+</p>
+
+<p>
+  <strong>Описание:</strong>
+  <%= @employee.description %>
+</p>
+
+<p>
+  <strong>Должность:</strong>
+  <%= @position.name %>
+</p>
+<h4>
+<%= link_to 'Редактировать', edit_employee_path(@employee) %> |
+<%= link_to 'Назад', employees_path %></h4>
+<br /><hr>
+<h3><div id="MyFooter">Copyright by Вавилов А. А. группа: М15-ИСТ-3</div></h3>

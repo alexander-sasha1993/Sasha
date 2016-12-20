@@ -1,0 +1,27 @@
+<p id="notice"><%= notice %></p>
+<h1>Справочник "Изготовителей"</h1>
+<hr>
+<p>
+  <strong>Название:</strong>
+  <%= @manufacturer.name %>
+</p>
+
+<p>
+  <strong>Адресс:</strong>
+  <%= @manufacturer.adress %>
+</p>
+
+<p>
+  <strong>Телефон:</strong>
+  <%= @manufacturer.phone %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @manufacturer.email %>
+</p>
+<h4>
+<%= link_to 'Редактировать', edit_manufacturer_path(@manufacturer) %> |
+<%= link_to 'Назад', manufacturers_path %></h4>
+<br /><hr>
+<h3><div id="MyFooter">Copyright by Вавилов А. А. группа: М15-ИСТ-3</div></h3>

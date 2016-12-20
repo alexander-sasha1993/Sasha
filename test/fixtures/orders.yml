@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  datepublic: 2016-12-06
+  dateperformance: 2016-12-06
+  costdelivery: 1.5
+  client_id: 1
+  delivery_id: 1
+  employee_id: 1
+
+two:
+  datepublic: 2016-12-06
+  dateperformance: 2016-12-06
+  costdelivery: 1.5
+  client_id: 1
+  delivery_id: 1
+  employee_id: 1

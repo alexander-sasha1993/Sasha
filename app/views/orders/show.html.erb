@@ -1,0 +1,115 @@
+<p id="notice"><%= notice %></p>
+<h1>Заказ и его составляющие</h1>
+<hr>
+<p>
+  <strong>Дата размещения:</strong>
+  <%= @order.datepublic %>
+</p>
+
+<p>
+  <strong>Дата исполнения:</strong>
+  <%= @order.dateperformance %>
+</p>
+
+<p>
+  <strong>Стоимость доставки (руб.):</strong>
+  <%= @order.costdelivery %>
+</p>
+
+<p>
+  <strong>Клиент:</strong>
+  <%= @client.name %>
+</p>
+
+<p>
+  <strong>Доставка:</strong>
+  <%= @delivery.name %>
+</p>
+
+<p>
+  <strong>Сотрудник:</strong>
+  <%= @employee.family %>
+</p>
+
+<hr>
+<% @myresult=0 %>
+<% @mycost=0 %>
+<table>
+  <thead>
+    <tr>
+      <th>Препарат</th>
+      <th>Цена, руб.</th>
+      <th>Количество, шт.</th>
+      <th>Скидка, %</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @ordereds.each do |ordered| %>
+      <% if ordered.order_id == @order.id %>
+        <tr>
+           <td>
+               <% @preparats.each do |preparat| %>
+                  <% if preparat.id == ordered.preparat_id %>
+                     <%= preparat.name %>
+                     <% @mycost=preparat.cost %>
+                  <% end %>
+               <% end %>
+           </td>
+           <td>
+               <%= @mycost %>
+           </td>
+           <td>
+              <% @myquantity=1 %>
+              <% if !(ordered.quantity==nil)  %>
+              <% @myquantity=ordered.quantity %>
+              <% end %>
+              <% @myresult=@myresult+@myquantity*@mycost %>
+              <%= @myquantity %>
+           </td>
+           <td>
+              <% @mydiscount=0 %>
+              <% if !(ordered.discount==nil)  %>
+              <% @mydiscount=ordered.discount %>
+              <% end %>
+              <% @myresult=@myresult*(1-@mydiscount/100) %>
+              <%= @mydiscount %>
+           </td>
+        </tr>
+      <% end %>
+    <% end %>
+  </tbody>
+</table>
+<br />
+<h3>
+<table>
+  <tr>
+      <td id="MyLeft">
+          Общая сумма (с учетом скидки):
+      </td>
+      <td id="MyRight">
+          <%= @myresult %> руб.
+      </td>
+  </tr>
+  <tr>
+      <td id="MyLeft">
+          Доставка:
+      </td>
+      <td id="MyRight">
+          <%= @order.costdelivery %> руб.
+      </td>
+  </tr>
+  <tr>
+      <td id="MyLeft">
+          Итого:
+      </td>
+      <td id="MyRight">
+          <%= @myresult+@order.costdelivery %> руб.
+      </td>
+  </tr>
+</table>
+</h3><h4>
+<%= link_to 'Редактировать', edit_order_path(@order) %> |
+<%= link_to 'Назад', orders_path %></h4>
+<br /><hr>
+<h3><div id="MyFooter">Copyright by Вавилов А. А. группа: М15-ИСТ-3</div></h3>

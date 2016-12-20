@@ -1,0 +1,47 @@
+<p id="notice"><%= notice %></p>
+<h1>Препараты</h1>
+<hr>
+<p>
+  <strong>Название:</strong>
+  <%= @preparat.name %>
+</p>
+
+<p>
+  <strong>Стоимость:</strong>
+  <%= @preparat.cost %> руб.
+</p>
+
+<p>
+  <strong>Дата изготовления:</strong>
+  <%= @preparat.dateofmanufacturer %>
+</p>
+
+<p>
+  <strong>Срок годности:</strong>
+  <%= @preparat.shelflife %> лет.
+</p>
+
+<p>
+  <strong>Описание:</strong>
+  <%= @preparat.description %>
+</p>
+
+<p>
+  <strong>Изготовитель:</strong>
+  <%= @manufacturer.name %>
+</p>
+
+<p>
+  <strong>Тип:</strong>
+  <%= @type.typeform %>
+</p>
+
+<p>
+  <strong>Поставщик:</strong>
+  <%= @provider.name %>
+</p>
+<h4>
+<%= link_to 'Редактировать', edit_preparat_path(@preparat) %> |
+<%= link_to 'Назад', preparats_path %></h4>
+<br /><hr>
+<h3><div id="MyFooter">Copyright by Вавилов А. А. группа: М15-ИСТ-3</div></h3>

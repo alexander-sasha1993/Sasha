@@ -1,0 +1,27 @@
+<p id="notice"><%= notice %></p>
+<h1>Справочник "Поставщиков"</h1>
+<hr>
+<p>
+  <strong>Название:</strong>
+  <%= @provider.name %>
+</p>
+
+<p>
+  <strong>Адресс:</strong>
+  <%= @provider.adress %>
+</p>
+
+<p>
+  <strong>Телефон:</strong>
+  <%= @provider.phone %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @provider.email %>
+</p>
+<h4>
+<%= link_to 'Редактировать', edit_provider_path(@provider) %> |
+<%= link_to 'Назад', providers_path %></h4>
+<br /><hr>
+<h3><div id="MyFooter">Copyright by Вавилов А. А. группа: М15-ИСТ-3</div></h3>

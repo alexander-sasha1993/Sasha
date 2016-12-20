@@ -1,0 +1,23 @@
+<p id="notice"><%= notice %></p>
+<h1>Справочник "Клиентов"</h1>
+<hr>
+<p>
+  <strong>Фамилия, Имя и Отчество:</strong>
+  <%= @client.name %>
+</p>
+
+<p>
+  <strong>Адрес:</strong>
+  <%= @client.adress %>
+</p>
+
+<p>
+  <strong>Телефон:</strong>
+  <%= @client.phone %>
+</p>
+<h4>
+<%= link_to 'Редактировать', edit_client_path(@client) %> |
+<%= link_to 'Назад', clients_path %>
+</h4>
+<br /><hr>
+<h3><div id="MyFooter">Copyright by Вавилов А. А. группа: М15-ИСТ-3</div></h3>
